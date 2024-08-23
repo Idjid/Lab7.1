@@ -1,5 +1,8 @@
 function myFunction() {  
+
     let userChoice;
+    let contacts = [];
+
     do {
         userChoice = prompt("Choose an option: first, last, new, or quit");
         if (userChoice === "first") {
@@ -27,7 +30,14 @@ function myFunction() {
                 phone: newPhone,
                 email: newEmail
             });
-            console.log("New contact added: " + newName);
+            let contact_list = document.getElementById("contact_list");
+            for (let i=0; i < contacts.length; i++) {
+                contact_list.innerHTML += "<li class='list-group-item'>" 
+                + contacts[0]["name"] + " / " 
+                + contacts[0]["phone"] + " / " 
+                + contacts[0]["email"] + "</li>";
+            }
+            console.log("New contact added: " + newName + " " + newPhone);
         } 
         
         else if (userChoice === "quit") {
@@ -35,3 +45,5 @@ function myFunction() {
         }
 } while (true);
 }
+
+
